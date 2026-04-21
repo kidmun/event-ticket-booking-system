@@ -3,7 +3,7 @@ package com.tickets.event_ticket_booking_system.repository;
 import java.util.UUID;
 
 import org.springframework.data.domain.Page;
-import org.springdoc.core.converters.models.Pageable;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.tickets.event_ticket_booking_system.domain.entity.Event;

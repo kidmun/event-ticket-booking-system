@@ -21,7 +21,7 @@ import com.tickets.event_ticket_booking_system.repository.ReservationRepository;
 import com.tickets.event_ticket_booking_system.repository.SeatRepository;
 import com.tickets.event_ticket_booking_system.repository.UserRepository;
 
-import jodd.net.HttpStatus;
+
 
 import java.time.Duration;
 import java.time.Instant;
@@ -46,7 +46,7 @@ public class ReservationService {
     private final UserRepository userRepository;
     private final RedissonClient redissonClient;
 
-    @Value("${app.reservation.expiry.minutes}")
+    @Value("${app.reservation.expiry.minutes:10}")
     private int expiryMinutes;
 
     @Transactional
