@@ -6,6 +6,8 @@ import java.util.UUID;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.tickets.event_ticket_booking_system.domain.enums.ReservationStatus;
+
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -57,10 +59,10 @@ public class Reservation {
     private Event event;
 
 
-    // @Enumerated(EnumType.STRING)
-    // @Column(nullable = false, length = 20)
-    // @Builder.Default
-    // private ReservationStatus status = ReservationStatus.PENDING;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    @Builder.Default
+    private ReservationStatus status = ReservationStatus.PENDING;
 
     @Column(name= "expires_at", nullable = false)
     private Instant expiresAt;

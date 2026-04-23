@@ -7,6 +7,9 @@ import java.util.UUID;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.tickets.event_ticket_booking_system.domain.enums.PriceTier;
+import com.tickets.event_ticket_booking_system.domain.enums.SeatStatus;
+
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,7 +25,11 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import jakarta.persistence.Version;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "seats", uniqueConstraints = @UniqueConstraint(
@@ -30,6 +37,11 @@ import lombok.Builder;
     columnNames = {"event_id", "section", "row_number", "seat_number"}
 ), indexes = @Index(name = "idx_seats_event_status", columnList = "event_id, status")
 )
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -48,17 +60,17 @@ public class Seat {
     @Column(name = "seat_number", nullable = false, length = 10)
     private String seatNumber;
 
-    // @Enumerated(EnumType.STRING)
-    // @Column(name="price_tier", nullable = false, length = 50)
-    // private PriceTier priceTier;
+    @Enumerated(EnumType.STRING)
+    @Column(name="price_tier", nullable = false, length = 50)
+    private PriceTier priceTier;
 
     @Column(nullable = false, precision = 10, scale =2)
     private BigDecimal price;
 
-    // @Enumerated(EnumType.STRING)
-    // @Column(nullable = false, length = 20)
-    // @Builder.Default
-    // private SeatStatus status = SeatStatus.AVAILABLE;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    @Builder.Default
+    private SeatStatus status = SeatStatus.AVAILABLE;
     @Version
     private Integer version;
     @CreationTimestamp

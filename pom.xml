@@ -28,6 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		
 	</properties>
 	<dependencies>
 		<dependency>
@@ -42,6 +43,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
+		<dependency>
+        <groupId>org.redisson</groupId>
+        <artifactId>redisson-spring-boot-starter</artifactId>
+        <version>4.0.0</version>
+    </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
@@ -116,6 +122,7 @@
         <groupId>org.flywaydb</groupId>
         <artifactId>flyway-database-postgresql</artifactId>
     </dependency>
+	
 
    
 
@@ -140,10 +147,10 @@
 
     <!-- Swagger / OpenAPI -->
     <dependency>
-        <groupId>org.springdoc</groupId>
-        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-        <version>2.4.0</version>
-    </dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    <version>3.0.0</version>
+</dependency>
 
     <!-- Prometheus -->
     <dependency>

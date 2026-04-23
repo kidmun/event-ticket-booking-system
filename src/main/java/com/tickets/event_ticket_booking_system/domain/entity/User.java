@@ -6,6 +6,8 @@ import java.util.UUID;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.tickets.event_ticket_booking_system.domain.enums.UserRole;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -42,10 +44,10 @@ public class User {
     @Column(name="first_name", nullable = false)
     private String fullName;
 
-    // @Enumerated(EnumType.STRING)
-    // @Column(nullable = false, length = 20)
-    // @Builder.Default
-    // private UserRole role = UserRole.USER;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    @Builder.Default
+    private UserRole role = UserRole.USER;
 
     @Column(name = "email_verified")
     @Builder.Default

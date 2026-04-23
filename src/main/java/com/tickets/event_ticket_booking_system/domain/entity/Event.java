@@ -6,6 +6,9 @@ import java.util.UUID;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.tickets.event_ticket_booking_system.domain.enums.EventCategory;
+import com.tickets.event_ticket_booking_system.domain.enums.EventStatus;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -55,14 +58,14 @@ public class Event {
     @Column(name = "event_date", nullable = false)
     private Instant eventDate;
 
-    // @Enumerated(EnumType.STRING)
-    // @Column(nullable = false, length = 50)
-    // private EventCategory category;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 50)
+    private EventCategory category;
 
-    // @Enumerated(EnumType.STRING)
-    // @Column(nullable = false, length = 20)
-    // @Builder.Default
-    // private EventStatus status = EventStatus.DRAFT;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    @Builder.Default
+    private EventStatus status = EventStatus.DRAFT;
 
     @Column(name = "total_seats", nullable = false)
     private Integer totalSeats;
